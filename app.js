@@ -3,7 +3,11 @@ var student = {
     lastName : "Ali",
     grade : "12th",
     age : 16,
-    email : "abc@gmail.com"
+    email : "abc@gmail.com",
+    displayName: function (){
+        document.getElementById("name").value = this.name;
+       
+    }
 };
 
 // var student = {};
@@ -31,8 +35,14 @@ var itemsArray = [
     {
         name:"shirt",
         price:880, 
-        quantity:1
-    },];
+        quantity:1,
+        calcTotal: function(){
+            return this.name + " total "+ (this.price * this.quantity + itemsArray[1].price * itemsArray[1].quantity);
+        }
+    },
+    
+];
+console.log(itemsArray[2].calcTotal());
 
 // console.log(itemsArray[0].name);
 // console.log(itemsArray[0].price);
@@ -40,3 +50,5 @@ var itemsArray = [
 // console.log(itemsArray[1].price);
 // console.log(itemsArray[2].name);
 // console.log(itemsArray[2].quantity);
+
+
