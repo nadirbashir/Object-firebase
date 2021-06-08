@@ -1,4 +1,4 @@
-//object is a type of var which has sets of values
+// //object is a type of var which has sets of values
 var student = {
     lastName : "Ali",
     grade : "12th",
@@ -10,16 +10,17 @@ var student = {
     }
 };
 
-// var student = {};
+// // var student = {};
 student.name = "Ahmed";
 student.roll = "567";
 student.age = 16;
 
-// console.log(student);
+console.log(student);
+console.log("grade" in student); // check grade property in object return boolean true or false
 // console.log(student.email);
 // console.log("roll" in student); // check property name in object & return boolean value
 
-//object can be placed within an array
+// //object can be placed within an array
 
 var itemsArray = [
     {
@@ -52,15 +53,16 @@ console.log(itemsArray[2].calcTotal());
 // console.log(itemsArray[2].quantity);
 
 
-// constructor function 
+// // constructor function create an instance of a class typically called object
+// // Constructor functions are templates for creating objects. We can use it to create different objects using the same constructor, which has the same instance methods and properties with different values for the nonmethod properties. We can use the instanceof operator to check if an object is created from a constructor.
 function Car(name, color, model, price){  
     this.name = name;
     this.color = color;
     this.model = model;
     this.price = price;
-    this.annualSale = function (){
+    this.annualSale = function (){  // // constructor method should not be declared with in constructor because every time instance of object is created the method is duplicated for all instance to avoid it we use prototype function 
         return this.price * 0.80;
-    }
+    };
 }
 
 var car1 = new Car("Toyota","white", 2018, "1000000");
@@ -70,4 +72,13 @@ var car3 = new Car("Nissan","Golden", 2015, "3000000");
 console.log(car2);
 console.log(car3.name);
 console.log(car3.color);
-console.log(car1.annualSale())
+console.log(car1.annualSale());
+console.log(car2.annualSale());
+console.log(itemsArray instanceof Car);
+console.log(car1 instanceof Car);
+console.log(c.());
+
+Car.prototype.showName = function(){
+    var discountPrice = this.price * 0.80;
+    return discountPrice;
+};
