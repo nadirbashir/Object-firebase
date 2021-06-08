@@ -52,3 +52,22 @@ console.log(itemsArray[2].calcTotal());
 // console.log(itemsArray[2].quantity);
 
 
+// constructor function 
+function Car(name, color, model, price){  
+    this.name = name;
+    this.color = color;
+    this.model = model;
+    this.price = price;
+    this.annualSale = function (){
+        return this.price * 0.80;
+    }
+}
+
+var car1 = new Car("Toyota","white", 2018, "1000000");
+var car2 = new Car("honda","black", 2020, "2000000");
+var car3 = new Car("Nissan","Golden", 2015, "3000000");
+
+console.log(car2);
+console.log(car3.name);
+console.log(car3.color);
+console.log(car1.annualSale())
