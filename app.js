@@ -87,3 +87,26 @@
 // console.log(car1 instanceof Car);
 // console.log(car2.carName());
 
+// console.log(firebase) // to check firebase is initialized
+// console.log(firebase.database()) // to check firebase database connected
+
+
+// setting data to firebase
+var count = 0;
+function signUp() {
+    count++;
+    var name = document.getElementById("name");
+    var password = document.getElementById("password");
+    var key = firebase.database().ref('user').push(user).key; // save key in obj it is very helpful
+var user = {
+    name:  name.value,
+    password: password.value,
+    key: key
+};
+console.log(user)
+
+    // firebase.database().ref('/').set(user);   / refers to the first element in database 
+    // firebase.database().ref("user/user"+count).set(user); // you can assign your own key    
+    // firebase.database().ref("user").push(user);  // with push firebase insert data and generate unique key 
+    firebase.database().ref("user/"+key).set(user);  // set with unique key 
+}

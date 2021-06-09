@@ -6,11 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+   
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-analytics.js"></script>
+
+<script>
+  var firebaseConfig = {
+    apiKey: "AIzaSyDof-VgtLrvE7bl1LMk-S-pAis8wJ8mhjQ",
+    authDomain: "authentication-bee9c.firebaseapp.com",
+    projectId: "authentication-bee9c",
+    storageBucket: "authentication-bee9c.appspot.com",
+    messagingSenderId: "376111052174",
+    appId: "1:376111052174:web:abf426c37926c15a2da0df",
+    measurementId: "G-LFZB3WVLY9"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
 </head>
 <body>
     <fieldset>
-        <input type="text" name="" placeholder="Enter your property" id="name">
-        <button id="" onclick = 'student.displayName()'>Submit</button>
+        <input type="text" name="" placeholder="Enter User name" id="name"> <br/>
+        <input type="text" name="" placeholder="Enter password" id="password">
+        <button id="" onclick = 'signUp()'>SignUp</button>
+        <button id="" onclick = ''>Sign In</button>
     </fieldset>
 </body>
 <script src="app.js"></script>
