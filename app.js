@@ -103,10 +103,46 @@ var user = {
     password: password.value,
     key: key
 };
-console.log(user)
+// console.log(user)
 
-    // firebase.database().ref('/').set(user);   / refers to the first element in database 
+    // firebase.database().ref('/').set(user);   '/' refers to the first element in database 
     // firebase.database().ref("user/user"+count).set(user); // you can assign your own key    
     // firebase.database().ref("user").push(user);  // with push firebase insert data and generate unique key 
     firebase.database().ref("user/"+key).set(user);  // set with unique key 
 }
+
+function getFirebaseData() {
+    // firebase.database().ref("user").once("value",function (data) {
+    //     console.log(data);
+    //     console.log(data.val()); // .val is a method to get data in proper method
+    // }); //get data only once when page is refreshed
+
+    // // getting specific data
+    // firebase.database().ref("user/-MbkOxCOEvFBCCbSb2PK").once("value",function (data) {
+    //     console.log(data.val()); // .val is a method to get data in proper method
+    // }); //get data only once when page is refreshed
+
+
+   // // firebase.database().ref("user").on("child_deleted",function (data) 
+    // // firebase.database().ref("user").on("child_changed",function (data) 
+    firebase.database().ref("user").on("child_added",function (data) {
+        // console.log(data);
+        console.log(data.val()); // .val is a method to get data in proper method
+    }); //get real time data when child added deleted or changed
+}
+getFirebaseData();
+
+// function removeFirebaseData() {
+//      firebase.database().ref("user/-MbkTkVNJUEXbzV3w27Y").remove(); //remove specific data from student
+//      // // firebase.database().ref("user").remove(); remove all data in user
+// }
+// removeFirebaseData();
+
+function editfirebaseData() {
+    firebase.database().ref("user/-MbkUYvhtlg5k4Lq-diz").set({
+        key: '-MbkUYvhtlg5k4Lq-diz',
+        name: 'majid',
+        password: '555'
+    })
+}
+editfirebaseData();
